@@ -16,7 +16,7 @@
   <div id="app">
     Loading...
   </div>
-  <link rel="stylesheet" type="text/css" href="leaflet.css" />
+  <link rel="stylesheet" href="leaflet.css" />
   <link rel="stylesheet" type="text/css" href="main.css">
 
   <!-- add Roboto font: http://www.google.com/fonts#UsePlace:use/Collection:Roboto:400,300,500 -->
@@ -38,7 +38,6 @@
     CivMap.start({
       attribution: '<a href="https://github.com/civexmap/civexmap.github.io">civexmap.github.io</a> | <a href="https://github.com/civexmap/civexmap.github.io/wiki/Contributors">Contributors</a>',
       tilesUrl: 'https://raw.githubusercontent.com/civexmap/tiles/master/',
-      claimsUrl: 'https://raw.githubusercontent.com/civexmap/data/master/claims.json',
       borderSquareRadius: 4000,
       basemaps: [
         'terrain',
@@ -50,8 +49,29 @@
       ],
       options: {
         basemap: 'terrain',
+        installedPlugins: [
+          CivMap.FeaturesPlugin,
+          CivMap.WaypointsPlugin,
+        ],
+        plugins: {
+          features: {
+            globalOpacity: 0,
+            featureGroup: {
+              geometry: "group",
+              name: "Claims Maps",
+              features: [
+                {
+                  geometry: "image",
+                  name: "Jecowa transparent",
+                  url: "https://www.mediafire.com/convkey/7bcf/d539122c3ohp7bxag.jpg",
+                  bounds: [[-4096, -4096], [4096, 4096]],
+                },
+              ],
+            },
+          },
+        },
       },
-    });
+    }, function (ref) { window.civMap = ref; });
   </script>
 </body>
 
