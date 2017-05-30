@@ -57,14 +57,18 @@
           features: {
             globalOpacity: 0,
             featureGroup: {
-              geometry: "group",
-              name: "Claims Maps",
+              properties: { name: "Claims Maps", },
               features: [
                 {
-                  geometry: "image",
-                  name: "Jecowa transparent",
-                  url: "https://image.ibb.co/jVR10v/civex_voxelmap_17b_full_flat.png",
-                  bounds: [[-4176, -4176], [4176, 4176]],
+                  properties: {
+                    type: "claimImage",
+                    name: "Jecowa transparent",
+                  },
+                  geometry: {
+                    type: "image",
+                    url: "https://image.ibb.co/jVR10v/civex_voxelmap_17b_full_flat.png",
+                    bounds: [[-4176, -4176], [4176, 4176]],
+                  },
                 },
               ],
             },
